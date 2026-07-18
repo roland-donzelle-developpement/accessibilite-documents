@@ -1,0 +1,11 @@
+{
+  "name": "accessibilite-documents",
+  "description": "Applique les regles d'accessibilite (WCAG 2.1/2.2, RGAA, PDF/UA-1) a tout document produit ou corrige : Word, PowerPoint, Excel, PDF, HTML. Portable entre organisations.",
+  "version": "1.0.0",
+  "author": {
+    "name": "roland-donzelle-developpement"
+  },
+  "homepage": "https://github.com/windostrich/accessibilite-documents",
+  "repository": "https://github.com/windostrich/accessibilite-documents",
+  "license": "Apache-2.0"
+}

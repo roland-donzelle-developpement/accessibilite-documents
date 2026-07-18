@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "accessibilite-documents",
+  "version": "1.0.0",
+  "description": "Skill d'accessibilite des documents (WCAG, RGAA, PDF/UA) pour Claude. Portable entre organisations, sans charte graphique imposee.",
+  "owner": {
+    "name": "roland-donzelle-developpement",
+    "url": "https://github.com/windostrich/accessibilite-documents"
+  },
+  "plugins": [
+    {
+      "name": "accessibilite-documents",
+      "source": "./",
+      "description": "Applique les regles d'accessibilite (titres, alternatives, contrastes, tableaux, langue) a tout document produit : Word, PowerPoint, Excel, PDF, HTML.",
+      "category": "productivity"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "skill_name": "accessibilite-documents",
+  "description": "Jeu de tests de depart. Chaque cas verifie que la skill se declenche et applique les regles d'accessibilite du format vise. A enrichir au fil des contributions.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Cree un document Word de deux pages presentant notre association, avec notre logo en en-tete et une photo d'illustration de nos activites. Il doit etre accessible.",
+      "expected_output": "Un .docx avec un seul H1 puis des titres de niveaux successifs via de vrais styles ; le logo marque comme image decorative (drapeau decoratif, champ NON vide) ; la photo d'illustration dotee d'un texte alternatif pertinent ; titre du document et langue renseignes.",
+      "files": [],
+      "assertions": [
+        "Le document utilise un seul style Titre 1 (un seul H1).",
+        "La hierarchie de titres ne saute pas de niveau.",
+        "Le logo est marque comme decoratif via le drapeau, pas via un champ alternatif vide.",
+        "La photo informative possede un texte alternatif non vide et pertinent.",
+        "Le titre du document et la langue principale sont renseignes."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Voici les chiffres d'adhesion par trimestre, mets-les en forme dans un classeur Excel propre.",
+      "expected_output": "Un .xlsx structure en table avec ligne d'en-tete identifiee, sans cellules fusionnees, sans information portee uniquement par la couleur ; titre du document renseigne. Declenchement attendu meme sans mention explicite d'accessibilite.",
+      "files": [],
+      "assertions": [
+        "Les donnees sont en table avec en-tetes de colonnes declares.",
+        "Aucune cellule fusionnee dans la zone de donnees.",
+        "Aucune information transmise par la seule couleur de remplissage.",
+        "La skill s'est declenchee malgre l'absence du mot 'accessible'."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Genere un PDF accessible a partir de cet article (titre, intertitres, deux images dont une simple separation graphique, un tableau de donnees).",
+      "expected_output": "Un PDF balise (PDF/UA-1) : arbre de structure avec H1-Hn, langue et titre declares, image informative avec /Alt, separation graphique en artefact, tableau avec cellules d'en-tete TH.",
+      "files": [],
+      "assertions": [
+        "Le PDF est balise (tagged) et marque PDF/UA dans les metadonnees.",
+        "La langue (/Lang) et le titre du document sont presents.",
+        "L'image informative porte un texte alternatif ; la separation est un artefact.",
+        "Le tableau utilise des cellules d'en-tete (TH) avec scope."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Prepare un courriel HTML d'invitation a notre assemblee generale, avec une banniere en haut.",
+      "expected_output": "Un HTML avec lang sur la racine, banniere decorative en alt=\"\" (+ role) OU image informative avec alt pertinent selon son role, titre de page signifiant, texte de lien explicite, contrastes verifies.",
+      "files": [],
+      "assertions": [
+        "L'element racine porte un attribut lang.",
+        "La banniere decorative utilise alt=\"\" (convention web), pas un drapeau de type bureautique.",
+        "Les liens ont un texte explicite (pas 'cliquez ici').",
+        "Aucune information portee par la seule couleur ; contrastes conformes."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Ces couleurs de notre charte conviennent-elles pour du texte courant : #5A7D9A sur fond blanc ?",
+      "expected_output": "Un calcul du ratio de contraste (via le script), une comparaison aux seuils AA (4,5:1 texte courant), et un signalement clair si non conforme — sans proposer de modifier d'autorite la couleur de marque.",
+      "files": [],
+      "assertions": [
+        "Le ratio de contraste est calcule et compare au seuil 4,5:1.",
+        "La conformite (ou non) au niveau AA est indiquee clairement.",
+        "En cas de non-conformite, la couleur de marque est signalee, pas remplacee d'office."
+      ]
+    }
+  ]
+}
